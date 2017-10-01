@@ -27,10 +27,10 @@ var myBool = false;
 // resultantCheck(checker)    :checks if the randomly chosen number is equal to
 //                             zero, which increments myWins or if the value is
 //                             less than 0, which increments myLosses
-// crazyChecker(ckrNo, fin)   :checks if the random_number is divisible by each
+// rmdrChkr(ckrNo, fin)       :checks if the random_number is divisible by each
 // 														 card
-// helpReqd()                 :Used in conjuction with crazyChecker() to toggle
-//                             the hint function
+// helpReqd()                 :Used in conjuction with rmdrChkr() to toggle the
+//                             hint function
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -55,7 +55,7 @@ var initializeGame = function() {
 	}
 
 	if(myBool == true) {
-		crazyChecker(checkNum, random_number);
+		rmdrChkr(checkNum, random_number);
 	}
 
 	$("#randNumber").html(random_number);
@@ -92,7 +92,7 @@ var resultantCheck = function(checker) {
 	}
 }
 
-var crazyChecker = function(ckrNo,fin) {
+var rmdrChkr = function(ckrNo,fin) {
 	// var tempArray = [];
 	for (var i = 0; i < ckrNo.length; i++) {
 		// tempArray[i] = fin % ckrNo[i];
@@ -108,13 +108,12 @@ var helpReqd = function() {
 	myBool = !myBool;
 	if(myBool === true) {
 		$("#enabler").html("(enabled)");
-		crazyChecker(checkNum,random_number);
+		rmdrChkr(checkNum,random_number);
 	}
 	else {
 		$("#enabler").html("(disabled)");
 		$("h1 i").removeClass("blue-FTW");
 	}
-
 }
 // =============================================================================
 
@@ -136,7 +135,7 @@ $(document).ready(function(){
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool == true){
-			crazyChecker(checkNum, random_number);
+			rmdrChkr(checkNum, random_number);
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
@@ -149,7 +148,7 @@ $(document).ready(function(){
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool === true){
-			crazyChecker(checkNum, random_number);
+			rmdrChkr(checkNum, random_number);
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
@@ -162,7 +161,7 @@ $(document).ready(function(){
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool === true){
-			crazyChecker(checkNum, random_number);
+			rmdrChkr(checkNum, random_number);
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
@@ -175,7 +174,7 @@ $(document).ready(function(){
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool === true){
-			crazyChecker(checkNum, random_number);
+			rmdrChkr(checkNum, random_number);
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
