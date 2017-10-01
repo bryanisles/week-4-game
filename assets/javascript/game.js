@@ -97,12 +97,11 @@ var resultantCheck = function(checker) {
 }
 
 var rmdrChkr = function(ckrNo,fin) {
-	// var tempArray = [];
 	for (var i = 0; i < ckrNo.length; i++) {
-		// tempArray[i] = fin % ckrNo[i];
 		if(fin % ckrNo[i] == 0) {
 			$("#btn-0" + (i+1)).addClass("blue-FTW");
-		} else {
+		}
+		else {
 			$("#btn-0" + (i+1)).removeClass("blue-FTW");
 		}
 	}
