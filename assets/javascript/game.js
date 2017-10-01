@@ -72,12 +72,22 @@ var printRandNum = function(newNum) {
 var resultantCheck = function(checker) {
 	if(checker == 0){
 		myWins++;
-		alert("You have surpassed all odds and won!");
+		if(myBool === true) {
+			alert("You've won, but not on your own");
+		}
+		else{
+			alert("You've surpassed all odds and won!");
+		}
 		initializeGame();
 	}
 	else if(checker < 0) {
 		myLosses++;
-		alert("You have lossed...");
+		if(myBool === true) {
+			alert("You've lossed...even with help (I feel bad for you son...)")
+		}
+		else{
+			alert("Keep your head held high, at least you didn't cheat")
+		}
 		initializeGame();
 	}
 }
