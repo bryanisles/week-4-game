@@ -93,10 +93,10 @@ var resultantCheck = function(checker) {
 }
 
 var crazyChecker = function(ckrNo,fin) {
-	var tempArray = [];
+	// var tempArray = [];
 	for (var i = 0; i < ckrNo.length; i++) {
-		tempArray[i] = fin % ckrNo[i];
-		if(tempArray[i] == 0) {
+		// tempArray[i] = fin % ckrNo[i];
+		if(fin % ckrNo[i] == 0) {
 			$("#btn-0" + (i+1)).addClass("blue-FTW");
 		} else {
 			$("#btn-0" + (i+1)).removeClass("blue-FTW");
@@ -118,6 +118,11 @@ var helpReqd = function() {
 }
 // =============================================================================
 
+// =============================================================================
+// WHERE THE MAGIC HAPPENS------------------------------------------------------
+// [description]                :document ready function that consists of all
+// 															 on-click events
+// -----------------------------------------------------------------------------
 $(document).ready(function(){
 	// ===========================================================================
 	// ON-CLICK (BUTTON) EVENTS---------------------------------------------------
@@ -184,3 +189,4 @@ $(document).ready(function(){
 	initializeGame();
 	// ===========================================================================
 })
+// =============================================================================
