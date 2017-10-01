@@ -31,6 +31,10 @@ var myBool = false;
 //                             card
 // helpReqd()                 :Used in conjuction with rmdrChkr() to toggle the
 //                             hint function
+// theSubtractor(pusher)      :subtracts the value attached to the respective
+//                             element, but requires a global variable within
+//                             the click event which references the selected
+//                             id attribute
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -115,6 +119,12 @@ var helpReqd = function() {
 		$("h1 i").removeClass("blue-FTW");
 	}
 }
+
+var theSubtractor = function(pusher) {
+	var tempOverall = parseInt($("#randNumber").attr("value"));
+	var mySubtractor = parseInt($("#" + pusher.id).attr("value"));
+	random_number = tempOverall - mySubtractor;
+}
 // =============================================================================
 
 // =============================================================================
@@ -129,9 +139,8 @@ $(document).ready(function(){
 	//                             is subtracted from the randomly generated value
 	// ---------------------------------------------------------------------------
 	$("#btn-01").on("click",function() {
-		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#" + this.id).attr("value"));
-		random_number = tempOverall - mySubtractor;
+		var pushThis = this;
+		theSubtractor(pushThis);
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool == true){
@@ -142,9 +151,8 @@ $(document).ready(function(){
 		}
 	});
 	$("#btn-02").on("click",function() {
-		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#" + this.id).attr("value"));
-		random_number = tempOverall - mySubtractor;
+		var pushThis = this;
+		theSubtractor(pushThis);
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool === true){
@@ -155,9 +163,8 @@ $(document).ready(function(){
 		}
 	});
 	$("#btn-03").on("click",function() {
-		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#" + this.id).attr("value"));
-		random_number = tempOverall - mySubtractor;
+		var pushThis = this;
+		theSubtractor(pushThis);
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool === true){
@@ -168,9 +175,8 @@ $(document).ready(function(){
 		}
 	});
 	$("#btn-04").on("click",function() {
-		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#" + this.id).attr("value"));
-		random_number = tempOverall - mySubtractor;
+		var pushThis = this;
+		theSubtractor(pushThis);
 		printRandNum(random_number);
 		resultantCheck(random_number);
 		if(myBool === true){
