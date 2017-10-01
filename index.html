@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CrystalsCollector Game</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    .icon-styling {
+      border:1px solid black;
+      padding:5px 10px;
+    }
+    i:hover{
+      cursor: pointer;
+      background-color: black;
+      color:white;
+    }
+    .blue-FTW {
+      background-color:#8888ff;
+      border:1px solid black;
+      padding:5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-block text-center">
+    <div class="jumbotron"><h1>CrystalsCollector</h1><br /><p>(sort of...)</p></div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>You will be given a random number at the start of the game.</p>
+        <p>There are four cards below. By clicking on a card you will add a specific amount of points to your total score.</p>
+        <p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
+        <p>The value of each card is hidden from you until you click on it.</p>
+        <p>Each time when the game starts, the game will change the values of each card</p>
+        <p>if help is required use the "HELP!!!" button below</p>
+      </div>
+    </div>
+    <div class="row icon-styling">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"><h3 style="position:relative; top:-19px; left:25px;"><span id="randNumber"></span></h3></div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="row">Wins: <span id="myWins"></span></div>
+        <div class="row">Losses: <span id="myLosses"></span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="row">
+          <h1>
+            <i id="btn-01" class="fa fa-btc icon-styling" aria-hidden="true"></i>
+          </h1>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h1>
+          <i id="btn-02" class="fa fa-usd icon-styling" aria-hidden="true"></i>
+        </h1>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h1>
+          <i id="btn-03" class="fa fa-jpy icon-styling" aria-hidden="true"></i>
+        </h1>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <h1>
+          <i id="btn-04" class="fa fa-gbp icon-styling" aria-hidden="true"></i>
+        </h1>
+      </div>
+    </div>
+    <div class="row center-block text-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button class="btn btn-default" type="button" onclick="helpReqd()">HELP!!!</button>
+      </div>
+      <div id="enabler" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">(disabled)</div>
+    </div>
+  </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>
