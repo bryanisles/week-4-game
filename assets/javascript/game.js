@@ -34,7 +34,7 @@ var myBool = false;
 // theSubtractor(pusher)      :subtracts the value attached to the respective
 //                             element, but requires a global variable within
 //                             the click event which references the selected
-//                             id attribute
+//                             element's id attribute
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -129,7 +129,7 @@ var theSubtractor = function(pusher) {
 // =============================================================================
 // WHERE THE MAGIC HAPPENS------------------------------------------------------
 // [description]                :document ready function that consists of all
-// 															 on-click events
+//                               on-click events
 // -----------------------------------------------------------------------------
 $(document).ready(function(){
 	// ===========================================================================
