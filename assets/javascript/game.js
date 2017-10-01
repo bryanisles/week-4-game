@@ -35,6 +35,9 @@ var myBool = false;
 //                             element, but requires a global variable within
 //                             the click event which references the selected
 //                             element's id attribute
+// impossibleWin()            :checks if the possibility of winning the game
+//                             exists, if not reinitialize game using
+//                             initializeGame()
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -82,7 +85,11 @@ var resultantCheck = function(checker) {
 		else{
 			alert("You've surpassed all odds and won!");
 		}
-		initializeGame();
+		do {
+			initializeGame();
+		}
+		while(impossibleWin() === 1);
+
 	}
 	else if(checker < 0) {
 		myLosses++;
@@ -92,7 +99,10 @@ var resultantCheck = function(checker) {
 		else{
 			alert("Keep your head held high, at least you didn't cheat")
 		}
-		initializeGame();
+		do {
+			initializeGame();
+		}
+		while(impossibleWin() === 1);
 	}
 }
 
@@ -123,6 +133,22 @@ var theSubtractor = function(pusher) {
 	var tempOverall = parseInt($("#randNumber").attr("value"));
 	var mySubtractor = parseInt($("#" + pusher.id).attr("value"));
 	random_number = tempOverall - mySubtractor;
+}
+
+var impossibleWin = function() {
+	var oddEvenArray = [];
+	var randNoOddEven = random_number % 2;
+	for(var i = 0; i < checkNum.length; i++) {
+		oddEvenArray.push(checkNum[i] % 2);
+		if(oddEvenArray[i] % 2 === randNoOddEven || checkNum[i] === 1) {
+			return 0; // Winning is possible
+			break;
+		}
+	}
+	// alert("impossible to Win");
+	// console.log(checkNum);
+	// console.log(random_number);
+	return 1; // Winning is impossible
 }
 // =============================================================================
 
@@ -190,7 +216,10 @@ $(document).ready(function(){
 	// ===========================================================================
 	// DOCUMENT READY INTIALIZATION-----------------------------------------------
 	// [description]              :initializes the game when document is ready
-	initializeGame();
+	do {
+		initializeGame();
+	}
+	while(impossibleWin() === 1);
 	// ===========================================================================
 })
 // =============================================================================
