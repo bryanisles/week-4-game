@@ -1,0 +1,12 @@
+.icon-styling {
+  border:1px solid black;
+  padding:5px 10px;
+}
+i:hover{
+  cursor: pointer;
+  background-color: black;
+  color:white;
+}
+.blue-FTW {
+  background-color:#8888ff;
+}

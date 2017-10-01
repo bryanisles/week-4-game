@@ -4,9 +4,9 @@
 // tempValue                  :A variable used for initializing the "card"
 //                             values
 // checkNum                   :A variable used in checking duplicates
-// myWins											:A variable to provide the amount of wins
+// myWins                     :A variable to provide the amount of wins
 // myLosses                   :A varaible to provide the amount of losses
-// myBool											:A variable to be used for boolean purposes
+// myBool                     :A variable to be used for boolean purposes
 // -----------------------------------------------------------------------------
 var random_number;
 var tempValue;
@@ -28,7 +28,7 @@ var myBool = false;
 //                             zero, which increments myWins or if the value is
 //                             less than 0, which increments myLosses
 // rmdrChkr(ckrNo, fin)       :checks if the random_number is divisible by each
-// 														 card
+//                             card
 // helpReqd()                 :Used in conjuction with rmdrChkr() to toggle the
 //                             hint function
 // -----------------------------------------------------------------------------
@@ -130,7 +130,7 @@ $(document).ready(function(){
 	// ---------------------------------------------------------------------------
 	$("#btn-01").on("click",function() {
 		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#btn-01").attr("value"));
+		var mySubtractor = parseInt($("#" + this.id).attr("value"));
 		random_number = tempOverall - mySubtractor;
 		printRandNum(random_number);
 		resultantCheck(random_number);
@@ -143,7 +143,7 @@ $(document).ready(function(){
 	});
 	$("#btn-02").on("click",function() {
 		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#btn-02").attr("value"));
+		var mySubtractor = parseInt($("#" + this.id).attr("value"));
 		random_number = tempOverall - mySubtractor;
 		printRandNum(random_number);
 		resultantCheck(random_number);
@@ -156,7 +156,7 @@ $(document).ready(function(){
 	});
 	$("#btn-03").on("click",function() {
 		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#btn-03").attr("value"));
+		var mySubtractor = parseInt($("#" + this.id).attr("value"));
 		random_number = tempOverall - mySubtractor;
 		printRandNum(random_number);
 		resultantCheck(random_number);
@@ -169,7 +169,7 @@ $(document).ready(function(){
 	});
 	$("#btn-04").on("click",function() {
 		var tempOverall = parseInt($("#randNumber").attr("value"));
-		var mySubtractor = parseInt($("#btn-04").attr("value"));
+		var mySubtractor = parseInt($("#" + this.id).attr("value"));
 		random_number = tempOverall - mySubtractor;
 		printRandNum(random_number);
 		resultantCheck(random_number);
