@@ -10,3 +10,18 @@ i:hover{
 .blue-FTW {
   background-color:#8888ff;
 }
+
+.jumbotron {
+  background-image: url("../images/cover.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter:grayscale(0.75);
+  -webkit-filter:grayscale(0.75);
+}
+
+.jumbotron div {
+  background-color:rgba(100,100,100,.5);
+  color:ghostwhite;
+  margin: 0 auto;
+}
