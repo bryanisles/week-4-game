@@ -156,7 +156,7 @@ $(document).ready(function(){
 		theSubtractor(pushThis);
 		printRandNum();
 		resultantCheck(random_number);
-		if(myBool == true){
+		if(myBool === true){
 			rmdrChkr();
 		}
 		else {
