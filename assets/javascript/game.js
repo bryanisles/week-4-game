@@ -35,9 +35,9 @@ var myBool = false;
 //                             element, but requires a global variable within
 //                             the click event which references the selected
 //                             element's id attribute
-// impossibleWin()            :checks if the possibility of winning the game
-//                             exists, if not reinitialize game using
-//                             initializeGame()
+// impossibleWin()            :function used in the initializeGame() function
+//                             to determine if there is a impossible wins
+//                             scenario.
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -50,12 +50,15 @@ var initializeGame = function() {
 	random_number = getRandomInt(19,120);
 	tempValue = getRandomInt(1,12);
 
-	for(var i = 0; i < 4; i++){
-		while(checkNum.indexOf(tempValue) > -1) {
-			tempValue = getRandomInt(1,12);
+	do {
+		for(var i = 0; i < 4; i++){
+			while(checkNum.indexOf(tempValue) > -1) {
+				tempValue = getRandomInt(1,12);
+			}
+			checkNum.push(tempValue);
 		}
-		checkNum.push(tempValue);
 	}
+	while(impossibleWin() === 1);
 
 	for(var i = 0; i < checkNum.length; i++) {
 		$("#btn-0" + (i+1)).attr("value", checkNum[i]);
@@ -85,11 +88,7 @@ var resultantCheck = function(checker) {
 		else{
 			alert("You've surpassed all odds and won!");
 		}
-		do {
-			initializeGame();
-		}
-		while(impossibleWin() === 1);
-
+		initializeGame();
 	}
 	else if(checker < 0) {
 		myLosses++;
@@ -99,10 +98,7 @@ var resultantCheck = function(checker) {
 		else{
 			alert("Keep your head held high, at least you didn't cheat")
 		}
-		do {
-			initializeGame();
-		}
-		while(impossibleWin() === 1);
+		initializeGame();
 	}
 }
 
@@ -136,18 +132,13 @@ var theSubtractor = function(pusher) {
 }
 
 var impossibleWin = function() {
-	var oddEvenArray = [];
 	var randNoOddEven = random_number % 2;
 	for(var i = 0; i < checkNum.length; i++) {
-		oddEvenArray.push(checkNum[i] % 2);
-		if(oddEvenArray[i] % 2 === randNoOddEven || checkNum[i] === 1) {
+		if(checkNum[i] % 2 === randNoOddEven || checkNum[i] === 1) {
 			return 0; // Winning is possible
 			break;
 		}
 	}
-	// alert("impossible to Win");
-	// console.log(checkNum);
-	// console.log(random_number);
 	return 1; // Winning is impossible
 }
 // =============================================================================
@@ -216,10 +207,7 @@ $(document).ready(function(){
 	// ===========================================================================
 	// DOCUMENT READY INTIALIZATION-----------------------------------------------
 	// [description]              :initializes the game when document is ready
-	do {
-		initializeGame();
-	}
-	while(impossibleWin() === 1);
+	initializeGame();
 	// ===========================================================================
 })
 // =============================================================================
