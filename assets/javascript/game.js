@@ -45,19 +45,28 @@ var getRandomInt = function(min,max) {
 }
 
 var initializeGame = function() {
-	checkNum = [];
 	random_number = getRandomInt(19,120);
 	tempValue = getRandomInt(1,12);
+	var j = 0;
+	var k = 0;
 	// never thought I would ever nest a do/while, a for, and a while loop
 	do {
+		k++;
+		checkNum = [];
 		for(var i = 0; i < 4; i++){
 			while(checkNum.indexOf(tempValue) > -1) {
+				j++;
 				tempValue = getRandomInt(1,12);
+				if(j == 1280) {
+					break;
+				}
 			}
 			checkNum.push(tempValue);
 		}
-	}
-	while(impossibleWin() === 1);
+		if(k == 1280) {
+			break;
+		}
+	} while(impossibleWin() === 1);
 	for(var i = 0; i < checkNum.length; i++) {
 		$("#btn-0" + (i+1)).attr("value", checkNum[i]);
 	}
@@ -65,6 +74,8 @@ var initializeGame = function() {
 		rmdrChkr();
 	}
 	printRandNum();
+	console.log(random_number);
+	console.log(checkNum);
 }
 
 var printRandNum = function() {
@@ -136,6 +147,7 @@ var impossibleWin = function() {
 			break;
 		}
 	}
+	console.log("impossible to win");
 	return 1; // Winning is impossible
 }
 // =============================================================================
