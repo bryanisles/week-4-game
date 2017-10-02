@@ -35,9 +35,9 @@ var myBool = false;
 //                             element, but requires a global variable within
 //                             the click event which references the selected
 //                             element's id attribute
-// impossibleWin()            :function used in the initializeGame() function
-//                             to determine if there is a impossible wins
-//                             scenario.
+// impossibleWin()            :(working) function used in the initializeGame()
+//                             function to determine if there is a impossible
+//                             wins scenario.
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -131,6 +131,8 @@ var theSubtractor = function(pusher) {
 	random_number = tempOverall - mySubtractor;
 }
 
+// (working) Logic may not be complete and may require additional review to
+//   determine if current algorithm covers all impossible cases
 var impossibleWin = function() {
 	var randNoOddEven = random_number % 2;
 	for(var i = 0; i < checkNum.length; i++) {
