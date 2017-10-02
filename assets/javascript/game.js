@@ -37,7 +37,7 @@ var myBool = false;
 //                             element's id attribute
 // impossibleWin()            :(working) function used in the initializeGame()
 //                             function to determine if there is a impossible
-//                             wins scenario.
+//                             win scenario.
 // -----------------------------------------------------------------------------
 var getRandomInt = function(min,max) {
 	min = Math.ceil(min);
@@ -50,6 +50,7 @@ var initializeGame = function() {
 	random_number = getRandomInt(19,120);
 	tempValue = getRandomInt(1,12);
 
+	// never thought I would ever nest a do/while, a for, and a while loop
 	do {
 		for(var i = 0; i < 4; i++){
 			while(checkNum.indexOf(tempValue) > -1) {
