@@ -22,12 +22,11 @@ var myBool = false;
 //                             parameters
 // initializeGame()           :initializes/reinitializes game when
 //                             starting/restarting game
-// printRandNum(newNum)       :changes innerHTML value and value attribute to
-//                             indicated parameter
+// printRandNum()             :prints all necessary info to document
 // resultantCheck(checker)    :checks if the randomly chosen number is equal to
 //                             zero, which increments myWins or if the value is
 //                             less than 0, which increments myLosses
-// rmdrChkr(ckrNo, fin)       :checks if the random_number is divisible by each
+// rmdrChkr()                 :checks if the random_number is divisible by each
 //                             card
 // helpReqd()                 :Used in conjuction with rmdrChkr() to toggle the
 //                             hint function
@@ -49,7 +48,6 @@ var initializeGame = function() {
 	checkNum = [];
 	random_number = getRandomInt(19,120);
 	tempValue = getRandomInt(1,12);
-
 	// never thought I would ever nest a do/while, a for, and a while loop
 	do {
 		for(var i = 0; i < 4; i++){
@@ -60,24 +58,20 @@ var initializeGame = function() {
 		}
 	}
 	while(impossibleWin() === 1);
-
 	for(var i = 0; i < checkNum.length; i++) {
 		$("#btn-0" + (i+1)).attr("value", checkNum[i]);
 	}
-
 	if(myBool == true) {
-		rmdrChkr(checkNum, random_number);
+		rmdrChkr();
 	}
+	printRandNum();
+}
 
+var printRandNum = function() {
 	$("#randNumber").html(random_number);
 	$("#randNumber").attr("value",random_number);
 	$("#myWins").html(myWins);
 	$("#myLosses").html(myLosses);
-}
-
-var printRandNum = function(newNum) {
-	$("#randNumber").html(newNum);
-	$("#randNumber").attr("value",newNum);
 }
 
 var resultantCheck = function(checker) {
@@ -103,9 +97,9 @@ var resultantCheck = function(checker) {
 	}
 }
 
-var rmdrChkr = function(ckrNo,fin) {
-	for (var i = 0; i < ckrNo.length; i++) {
-		if(fin % ckrNo[i] == 0) {
+var rmdrChkr = function() {
+	for (var i = 0; i < checkNum.length; i++) {
+		if(random_number % checkNum[i] == 0) {
 			$("#btn-0" + (i+1)).addClass("blue-FTW");
 		}
 		else {
@@ -118,7 +112,7 @@ var helpReqd = function() {
 	myBool = !myBool;
 	if(myBool === true) {
 		$("#enabler").html("(enabled)");
-		rmdrChkr(checkNum,random_number);
+		rmdrChkr();
 	}
 	else {
 		$("#enabler").html("(disabled)");
@@ -160,10 +154,10 @@ $(document).ready(function(){
 	$("#btn-01").on("click",function() {
 		var pushThis = this;
 		theSubtractor(pushThis);
-		printRandNum(random_number);
+		printRandNum();
 		resultantCheck(random_number);
 		if(myBool == true){
-			rmdrChkr(checkNum, random_number);
+			rmdrChkr();
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
@@ -172,10 +166,10 @@ $(document).ready(function(){
 	$("#btn-02").on("click",function() {
 		var pushThis = this;
 		theSubtractor(pushThis);
-		printRandNum(random_number);
+		printRandNum();
 		resultantCheck(random_number);
 		if(myBool === true){
-			rmdrChkr(checkNum, random_number);
+			rmdrChkr();
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
@@ -184,10 +178,10 @@ $(document).ready(function(){
 	$("#btn-03").on("click",function() {
 		var pushThis = this;
 		theSubtractor(pushThis);
-		printRandNum(random_number);
+		printRandNum();
 		resultantCheck(random_number);
 		if(myBool === true){
-			rmdrChkr(checkNum, random_number);
+			rmdrChkr();
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
@@ -196,10 +190,10 @@ $(document).ready(function(){
 	$("#btn-04").on("click",function() {
 		var pushThis = this;
 		theSubtractor(pushThis);
-		printRandNum(random_number);
+		printRandNum();
 		resultantCheck(random_number);
 		if(myBool === true){
-			rmdrChkr(checkNum, random_number);
+			rmdrChkr();
 		}
 		else {
 			$("h1 i").removeClass("blue-FTW");
