@@ -16,8 +16,8 @@ i:hover{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  filter:grayscale(0.75);
-  -webkit-filter:grayscale(0.75);
+  filter:grayscale(0.5);
+  -webkit-filter:grayscale(0.5);
 }
 
 .jumbotron div {
