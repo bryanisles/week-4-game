@@ -53,29 +53,27 @@ var initializeGame = function() {
 	do {
 		k++;
 		checkNum = [];
-		for(var i = 0; i < 4; i++){
-			while(checkNum.indexOf(tempValue) > -1) {
+		for (var i = 0; i < 4; i++) {
+			while (checkNum.indexOf(tempValue) > -1) {
 				j++;
 				tempValue = getRandomInt(1,12);
-				if(j == 1280) {
+				if (j == 128) {
 					break;
 				}
 			}
 			checkNum.push(tempValue);
 		}
-		if(k == 1280) {
+		if (k == 128) {
 			break;
 		}
-	} while(impossibleWin() === 1);
-	for(var i = 0; i < checkNum.length; i++) {
+	} while (impossibleWin() === 1);
+	for (var i = 0; i < checkNum.length; i++) {
 		$("#btn-0" + (i+1)).attr("value", checkNum[i]);
 	}
-	if(myBool == true) {
+	if (myBool == true) {
 		rmdrChkr();
 	}
 	printRandNum();
-	console.log(random_number);
-	console.log(checkNum);
 }
 
 var printRandNum = function() {
@@ -86,22 +84,19 @@ var printRandNum = function() {
 }
 
 var resultantCheck = function(checker) {
-	if(checker == 0){
+	if (checker == 0) {
 		myWins++;
-		if(myBool === true) {
+		if (myBool === true) {
 			alert("You've won, but not on your own");
-		}
-		else{
+		}	else {
 			alert("You've surpassed all odds and won!");
 		}
 		initializeGame();
-	}
-	else if(checker < 0) {
+	} else if (checker < 0) {
 		myLosses++;
-		if(myBool === true) {
+		if (myBool === true) {
 			alert("You've lossed...even with help (I feel bad for you son...)")
-		}
-		else{
+		}	else {
 			alert("Keep your head held high, at least you didn't cheat")
 		}
 		initializeGame();
@@ -110,10 +105,9 @@ var resultantCheck = function(checker) {
 
 var rmdrChkr = function() {
 	for (var i = 0; i < checkNum.length; i++) {
-		if(random_number % checkNum[i] == 0) {
+		if (random_number % checkNum[i] == 0) {
 			$("#btn-0" + (i+1)).addClass("blue-FTW");
-		}
-		else {
+		}	else {
 			$("#btn-0" + (i+1)).removeClass("blue-FTW");
 		}
 	}
@@ -121,11 +115,10 @@ var rmdrChkr = function() {
 
 var helpReqd = function() {
 	myBool = !myBool;
-	if(myBool === true) {
+	if (myBool === true) {
 		$("#enabler").html("(enabled)");
 		rmdrChkr();
-	}
-	else {
+	}	else {
 		$("#enabler").html("(disabled)");
 		$("h1 i").removeClass("blue-FTW");
 	}
@@ -141,13 +134,12 @@ var theSubtractor = function(pusher) {
 //   determine if current algorithm covers all impossible cases
 var impossibleWin = function() {
 	var randNoOddEven = random_number % 2;
-	for(var i = 0; i < checkNum.length; i++) {
-		if(checkNum[i] % 2 === randNoOddEven || checkNum[i] === 1) {
+	for (var i = 0; i < checkNum.length; i++) {
+		if (checkNum[i] % 2 === randNoOddEven || checkNum[i] === 1) {
 			return 0; // Winning is possible
 			break;
 		}
 	}
-	console.log("impossible to win");
 	return 1; // Winning is impossible
 }
 // =============================================================================
@@ -168,10 +160,9 @@ $(document).ready(function(){
 		theSubtractor(pushThis);
 		printRandNum();
 		resultantCheck(random_number);
-		if(myBool === true){
+		if (myBool === true) {
 			rmdrChkr();
-		}
-		else {
+		} else {
 			$("h1 i").removeClass("blue-FTW");
 		}
 	});
@@ -180,10 +171,9 @@ $(document).ready(function(){
 		theSubtractor(pushThis);
 		printRandNum();
 		resultantCheck(random_number);
-		if(myBool === true){
+		if (myBool === true) {
 			rmdrChkr();
-		}
-		else {
+		}	else {
 			$("h1 i").removeClass("blue-FTW");
 		}
 	});
@@ -192,10 +182,9 @@ $(document).ready(function(){
 		theSubtractor(pushThis);
 		printRandNum();
 		resultantCheck(random_number);
-		if(myBool === true){
+		if (myBool === true) {
 			rmdrChkr();
-		}
-		else {
+		}	else {
 			$("h1 i").removeClass("blue-FTW");
 		}
 	});
@@ -204,10 +193,9 @@ $(document).ready(function(){
 		theSubtractor(pushThis);
 		printRandNum();
 		resultantCheck(random_number);
-		if(myBool === true){
+		if (myBool === true) {
 			rmdrChkr();
-		}
-		else {
+		}	else {
 			$("h1 i").removeClass("blue-FTW");
 		}
 	});
